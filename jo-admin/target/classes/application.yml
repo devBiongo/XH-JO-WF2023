@@ -1,0 +1,44 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost/workflowdb?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Tokyo
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+
+mybatis-plus:
+#  type-aliases-package: com.wf.**.model.pojo
+#  mapper-locations: classpath*:mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #??????
+    map-underscore-to-camel-case: false
+
+
+token:
+  header: Authorization
+  secret: abcdefghijklmnopqrstuvwxyz
+  expireTime: 30
+
+
+# ????
+logging:
+  level:
+    com.ruoyi: debug
+    org.springframework: warn
+
+# ????
+user:
+  password:
+    # ????????
+    maxRetryCount: 5
+    # ?????????10???
+    lockTime: 10
+

@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "name": "ruoyi",
+      "type": "com.jo.common.config.AppConfig",
+      "sourceType": "com.jo.common.config.AppConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ruoyi.copyright-year",
+      "type": "java.lang.String",
+      "description": "版权年份",
+      "sourceType": "com.jo.common.config.AppConfig"
+    },
+    {
+      "name": "ruoyi.demo-enabled",
+      "type": "java.lang.Boolean",
+      "description": "实例演示开关",
+      "sourceType": "com.jo.common.config.AppConfig"
+    },
+    {
+      "name": "ruoyi.name",
+      "type": "java.lang.String",
+      "description": "项目名称",
+      "sourceType": "com.jo.common.config.AppConfig"
+    },
+    {
+      "name": "ruoyi.version",
+      "type": "java.lang.String",
+      "description": "版本",
+      "sourceType": "com.jo.common.config.AppConfig"
+    }
+  ],
+  "hints": []
+}

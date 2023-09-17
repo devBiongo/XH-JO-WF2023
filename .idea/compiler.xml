@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jo-framework" />
+        <module name="jo-system" />
+        <module name="jo-common" />
+        <module name="jo-admin" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="xh-common" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="XH-JO-WF2023" options="-parameters" />
+      <module name="jo-admin" options="-parameters" />
+      <module name="jo-common" options="-parameters" />
+      <module name="jo-framework" options="-parameters" />
+      <module name="jo-system" options="-parameters" />
+      <module name="xh-common" options="-parameters" />
+    </option>
+  </component>
+</project>
