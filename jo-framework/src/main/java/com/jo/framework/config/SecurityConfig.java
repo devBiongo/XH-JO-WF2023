@@ -60,13 +60,13 @@ public class SecurityConfig {
                 // 权限设置
                 .authorizeRequests(authorize -> authorize
                         // 请求放开
-                        .antMatchers("/**").permitAll()
+                        .antMatchers("/test").permitAll()
                         .antMatchers("/file/captcha/getCaptchaImage").permitAll()
                         .antMatchers("/file/pdf/download").permitAll()
                         //下边的路径放行
                         .antMatchers("/v2/api-docs", "/swagger-resources/configuration/ui",
                                 "/swagger-resources", "/swagger-resources/configuration/security",
-                                "/swagger-ui/index.html ", "/webjars/**").permitAll()
+                                "/swagger-ui.html", "/webjars/**").permitAll()
                         // 其他地址的访问均需验证权限
                         .anyRequest().authenticated()
                 )
