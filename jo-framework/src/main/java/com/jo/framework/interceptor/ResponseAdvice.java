@@ -10,7 +10,6 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import springfox.documentation.swagger.web.UiConfiguration;
 
 @RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
@@ -22,9 +21,6 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        if (obj instanceof UiConfiguration) {
-            return obj;
-        }
         if (obj instanceof String) {
             obj = AjaxResult.success(obj);
         } else if (!(obj instanceof Resource) && !(obj instanceof byte[]) && !(obj instanceof AjaxResult)) {
