@@ -16,6 +16,7 @@ import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
 import java.util.TimerTask;
 
 /**
@@ -62,6 +63,7 @@ public class AsyncFactory {
                 loginInfo.setBrowser(browser);
                 loginInfo.setOs(os);
                 loginInfo.setMsg(message);
+                loginInfo.setLoginTime(new Date());
                 // 日志状态
                 if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER)) {
                     loginInfo.setStatus(Constants.SUCCESS);

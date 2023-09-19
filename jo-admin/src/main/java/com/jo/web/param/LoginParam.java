@@ -1,6 +1,8 @@
-package com.jo.common.core.model;
+package com.jo.web.param;
 
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * 用户登录对象
@@ -8,7 +10,7 @@ import lombok.Data;
  * @author ruoyi
  */
 @Data
-public class LoginBody {
+public class LoginParam {
 
     /**
      * 唯一标识
@@ -18,11 +20,13 @@ public class LoginBody {
     /**
      * 用户名
      */
+    @NotBlank
     private String username;
 
     /**
      * 用户密码
      */
+    @NotBlank
     private String password;
 
     /**

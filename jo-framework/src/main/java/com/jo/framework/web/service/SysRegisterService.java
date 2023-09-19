@@ -11,7 +11,6 @@ import com.jo.common.utils.SecurityUtils;
 import com.jo.common.utils.StringUtils;
 import com.jo.framework.manager.AsyncManager;
 import com.jo.framework.manager.factory.AsyncFactory;
-import com.jo.common.core.model.RegisterBody;
 import com.jo.common.core.domain.po.SysUserPo;
 import com.jo.system.service.ISysConfigService;
 import com.jo.system.service.ISysUserService;
@@ -38,9 +37,9 @@ public class SysRegisterService
     /**
      * 注册
      */
-    public String register(RegisterBody registerBody)
+    public String register(String username, String password, String code, String uuid)
     {
-        String msg = "", username = registerBody.getUsername(), password = registerBody.getPassword();
+        String msg = "";
         SysUserPo sysUser = new SysUserPo();
         sysUser.setUsername(username);
 
@@ -48,7 +47,7 @@ public class SysRegisterService
         boolean captchaEnabled = configService.selectCaptchaEnabled();
         if (captchaEnabled)
         {
-            validateCaptcha(username, registerBody.getCode(), registerBody.getUuid());
+            validateCaptcha(username, code, uuid);
         }
 
         if (StringUtils.isEmpty(username))

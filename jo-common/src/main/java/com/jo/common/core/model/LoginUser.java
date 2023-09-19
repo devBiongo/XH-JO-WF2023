@@ -79,7 +79,7 @@ public class LoginUser implements UserDetails {
     private Set<String> permissions;
 
     public Long getUserId() {
-        return userId;
+        return this.user.getUserId();
     }
 
     public void setUserId(Long userId) {

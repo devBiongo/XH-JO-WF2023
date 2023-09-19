@@ -31,10 +31,8 @@ public class SysPermissionService {
      * @return 角色权限信息
      */
     public Set<String> getRolePermission(SysUserPo user) {
-        Set<String> roles = new HashSet<String>();
-        // 管理员拥有所有权限
-        roles.addAll(roleService.selectRolePermissionByUserId(user.getUserId()));
-        return roles;
+
+        return new HashSet<String>(roleService.selectRolePermissionByUserId(user.getUserId()));
     }
 
     /**
@@ -44,18 +42,6 @@ public class SysPermissionService {
      * @return 菜单权限信息
      */
     public Set<String> getMenuPermission(SysUserPo user) {
-        Set<String> perms = new HashSet<String>();
-        List<SysRolePo> roles = null;
-        if (!roles.isEmpty() && roles.size() > 1) {
-            // 多角色设置permissions属性，以便数据权限匹配权限
-            for (SysRolePo role : roles) {
-                Set<String> rolePerms = menuService.selectMenuPermsByRoleId(role.getRoleId());
-                role.setPermissions(rolePerms);
-                perms.addAll(rolePerms);
-            }
-        } else {
-            perms.addAll(menuService.selectMenuPermsByUserId(user.getUserId()));
-        }
-        return perms;
+        return menuService.selectMenuPermsByUserId(user.getUserId());
     }
 }

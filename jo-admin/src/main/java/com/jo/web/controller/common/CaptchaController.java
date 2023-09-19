@@ -4,6 +4,7 @@ package com.jo.web.controller.common;
 import com.google.code.kaptcha.Producer;
 import com.jo.common.constant.CacheConstants;
 import com.jo.common.constant.Constants;
+import com.jo.common.core.domain.AjaxResult;
 import com.jo.common.core.domain.po.SysLoginPo;
 import com.jo.common.core.redis.RedisCache;
 import com.jo.common.utils.LogUtils;
@@ -56,9 +57,6 @@ public class CaptchaController {
     @GetMapping("/getCaptchaImage")
     public HashMap<String,Object> getCode(HttpServletResponse response) throws IOException {
 
-        AsyncManager.me().execute(AsyncFactory.recordLoginInfo("usernameTest", Constants.LOGIN_FAIL,
-                "msg123"));
-
         String uuid = IdUtils.simpleUUID();
         String verifyKey = CacheConstants.CAPTCHA_CODE_KEY + uuid;
 
@@ -78,10 +76,6 @@ public class CaptchaController {
         HashMap<String,Object> returnObj = new HashMap<String,Object>();
         returnObj.put("uuid", uuid);
         returnObj.put("img", Base64.encode(os.toByteArray()));
-        return returnObj;
-    }
-    @GetMapping("/haha")
-    public String haha(){
-        return "haha";
+        return AjaxResult.success(returnObj);
     }
 }

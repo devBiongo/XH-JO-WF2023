@@ -11,10 +11,12 @@ import java.util.List;
 
 @Service
 public class SysUserServiceImpl extends BaseService<SysUserMapper, SysUserPo> implements ISysUserService {
+
+
     @Override
     public SysUserPo selectUserByUserName(String username) {
         QueryWrapper<SysUserPo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", username);
+        queryWrapper.eq("user_name", username);
         List<SysUserPo> list = this.list(queryWrapper);
         return list.isEmpty() ? null : list.get(0);
     }

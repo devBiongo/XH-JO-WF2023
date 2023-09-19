@@ -11,7 +11,6 @@ import javax.crypto.SecretKey;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -78,6 +77,7 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(decodeKey);
     }
 
+
     /**
      * 解析jwt
      *
@@ -94,10 +94,11 @@ public class JwtUtils {
     }
 
     public static void main(String[] args) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("username", "admin");
-        String jwt = createJWT(claims);
-        System.out.println(jwt);
-        System.out.println(parseJWT(jwt));
+//        Map<String, Object> claims = new HashMap<>();
+//        claims.put("username", "admin");
+//        String jwt = createJWT(claims);
+//        System.out.println(jwt);
+//        System.out.println(parseJWT(jwt));
+        System.out.println(123);
     }
 }

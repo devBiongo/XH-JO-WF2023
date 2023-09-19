@@ -2,21 +2,16 @@ package com.jo.web.controller.system;
 
 import com.jo.common.constant.Constants;
 import com.jo.common.core.domain.AjaxResult;
-import com.jo.common.core.domain.po.SysUserPo;
-import com.jo.common.core.model.LoginBody;
-import com.jo.common.utils.SecurityUtils;
+import com.jo.web.param.LoginParam;
 import com.jo.framework.web.service.SysLoginService;
-import com.jo.framework.web.service.SysPermissionService;
-import com.jo.system.service.ISysMenuService;
-import com.jo.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 登录验证
@@ -25,41 +20,25 @@ import java.util.Set;
  */
 @RestController
 public class SysLoginController {
+
     @Autowired
     private SysLoginService loginService;
-
-    @Autowired
-    private ISysMenuService menuService;
-
-    @Autowired
-    private SysPermissionService permissionService;
-
-    @Autowired
-    private ISysUserService sysUserService;
-
-    @GetMapping("/test")
-    public List<SysUserPo> test() {
-
-        List<SysUserPo> list = sysUserService.list();
-        return list;
-
-    }
-
 
     /**
      * 登录方法
      *
-     * @param loginBody 登录信息
+     * @param loginParam 登录信息
      * @return 结果
      */
     @PostMapping("/login")
-    public AjaxResult login(@RequestBody LoginBody loginBody) {
-        AjaxResult ajax = AjaxResult.success();
+    public AjaxResult login(@RequestBody @Validated LoginParam loginParam) {
         // 生成令牌
-        String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
-                loginBody.getUuid());
-        ajax.put(Constants.TOKEN, token);
-        return ajax;
+        String token = loginService.login(loginParam.getUsername(), loginParam.getPassword(), loginParam.getCode(),
+                loginParam.getUuid());
+        Map<String,String> data = new HashMap<>(){{
+            put(Constants.TOKEN, token);
+        }};
+        return AjaxResult.success(data);
     }
 
 

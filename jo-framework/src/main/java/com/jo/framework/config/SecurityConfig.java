@@ -60,7 +60,7 @@ public class SecurityConfig {
                 // 权限设置
                 .authorizeRequests(authorize -> authorize
                         // 请求放开
-                        .antMatchers("/test").permitAll()
+                        .antMatchers("/login").permitAll()
                         .antMatchers("/file/captcha/getCaptchaImage").permitAll()
                         .antMatchers("/file/pdf/download").permitAll()
                         //下边的路径放行

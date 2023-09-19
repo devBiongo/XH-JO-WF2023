@@ -16,7 +16,7 @@ public class SysConfigServiceImpl extends BaseService<SysConfigMapper, SysConfig
 
     @Override
     public boolean selectCaptchaEnabled() {
-        return false;
+        return true;
     }
 
     @Override

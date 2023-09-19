@@ -12,7 +12,7 @@ import java.util.List;
  * 
  * @author ruoyi
  */
-public class SysDept
+public class SysDeptPo
 {
     private static final long serialVersionUID = 1L;
 
@@ -50,7 +50,7 @@ public class SysDept
     private String parentName;
     
     /** 子部门 */
-    private List<SysDept> children = new ArrayList<SysDept>();
+    private List<SysDeptPo> children = new ArrayList<SysDeptPo>();
 
     public Long getDeptId()
     {
@@ -168,12 +168,12 @@ public class SysDept
         this.parentName = parentName;
     }
 
-    public List<SysDept> getChildren()
+    public List<SysDeptPo> getChildren()
     {
         return children;
     }
 
-    public void setChildren(List<SysDept> children)
+    public void setChildren(List<SysDeptPo> children)
     {
         this.children = children;
     }

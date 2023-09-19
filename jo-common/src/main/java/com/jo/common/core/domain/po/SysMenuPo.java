@@ -11,7 +11,7 @@ import java.util.List;
  * 
  * @author ruoyi
  */
-public class SysMenu {
+public class SysMenuPo {
     private static final long serialVersionUID = 1L;
 
     /** 菜单ID */
@@ -60,7 +60,7 @@ public class SysMenu {
     private String icon;
 
     /** 子菜单 */
-    private List<SysMenu> children = new ArrayList<SysMenu>();
+    private List<SysMenuPo> children = new ArrayList<SysMenuPo>();
 
     public Long getMenuId()
     {
@@ -219,12 +219,12 @@ public class SysMenu {
         this.icon = icon;
     }
 
-    public List<SysMenu> getChildren()
+    public List<SysMenuPo> getChildren()
     {
         return children;
     }
 
-    public void setChildren(List<SysMenu> children)
+    public void setChildren(List<SysMenuPo> children)
     {
         this.children = children;
     }

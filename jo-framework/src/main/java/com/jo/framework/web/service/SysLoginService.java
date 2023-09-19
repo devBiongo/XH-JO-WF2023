@@ -82,6 +82,7 @@ public class SysLoginService {
         }
         AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
+        redisCache.setCacheObject(CacheConstants.LOGIN_TOKEN_KEY + loginUser.getUserId(), loginUser);
         recordLoginInfo(loginUser.getUserId());
         // 生成token
         Map<String, Object> claims = new HashMap<>() {{
@@ -122,11 +123,6 @@ public class SysLoginService {
      * @param password 用户密码
      */
     public void loginPreCheck(String username, String password) {
-        // 用户名或密码为空 错误
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message("not.null")));
-            throw new UserNotExistsException();
-        }
         // 密码如果不在指定范围内 错误
         if (password.length() < UserConstants.PASSWORD_MIN_LENGTH
                 || password.length() > UserConstants.PASSWORD_MAX_LENGTH) {

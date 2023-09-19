@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  messages:
+    basename: i18n/messages
   mvc:
     path match:
       matching-strategy: ant_path_matcher
@@ -19,7 +21,7 @@ spring:
     druid:
       # 主库数据源
       master:
-        url: jdbc:mysql://localhost/workflowdb?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Tokyo
+        url: jdbc:mysql://localhost/xin_he_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Tokyo
         username: root
         password: root
       # 从库数据源
@@ -76,11 +78,10 @@ spring:
 
 
 mybatis-plus:
-#  type-aliases-package: com.wf.**.model.pojo
-#  mapper-locations: classpath*:mapper/*Mapper.xml
+#  type-aliases-package: com.jo.**.model.pojo
+  mapper-locations: classpath*:mapper/*Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    #??????
     map-underscore-to-camel-case: false
 
 

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * 
  * @author ruoyi
  */
-public class TreeSelect implements Serializable
+public class TreeSelectPo implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -23,25 +23,25 @@ public class TreeSelect implements Serializable
 
     /** 子节点 */
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private List<TreeSelect> children;
+    private List<TreeSelectPo> children;
 
-    public TreeSelect()
+    public TreeSelectPo()
     {
 
     }
 
-    public TreeSelect(SysDept dept)
+    public TreeSelectPo(SysDeptPo dept)
     {
         this.id = dept.getDeptId();
         this.label = dept.getDeptName();
-        this.children = dept.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
+        this.children = dept.getChildren().stream().map(TreeSelectPo::new).collect(Collectors.toList());
     }
 
-    public TreeSelect(SysMenu menu)
+    public TreeSelectPo(SysMenuPo menu)
     {
         this.id = menu.getMenuId();
         this.label = menu.getMenuName();
-        this.children = menu.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
+        this.children = menu.getChildren().stream().map(TreeSelectPo::new).collect(Collectors.toList());
     }
 
     public Long getId()
@@ -64,12 +64,12 @@ public class TreeSelect implements Serializable
         this.label = label;
     }
 
-    public List<TreeSelect> getChildren()
+    public List<TreeSelectPo> getChildren()
     {
         return children;
     }
 
-    public void setChildren(List<TreeSelect> children)
+    public void setChildren(List<TreeSelectPo> children)
     {
         this.children = children;
     }

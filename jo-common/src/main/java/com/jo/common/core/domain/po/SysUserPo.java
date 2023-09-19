@@ -1,18 +1,24 @@
 package com.jo.common.core.domain.po;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @TableName("sys_user")
-public class SysUserPo {
+public class SysUserPo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableField("user_id")
+    @TableId(value = "user_id",type = IdType.AUTO)
     private Long userId;
+
+    @TableField("company_id")
+    private Long companyId;
 
     @TableField("dept_id")
     private Long deptId;
@@ -28,7 +34,7 @@ public class SysUserPo {
 
     private String email;
 
-    @TableField("phonenumber")
+    @TableField("phone_number")
     private String phoneNumber;
 
     private String sex;
