@@ -27,5 +27,12 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- 业务模块-->
+        <dependency>
+            <groupId>com.jo</groupId>
+            <artifactId>jo-business</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 </project>

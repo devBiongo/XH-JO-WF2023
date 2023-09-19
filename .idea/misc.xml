@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/jo-common/pom.xml" />
         <option value="$PROJECT_DIR$/jo-admin/pom.xml" />
         <option value="$PROJECT_DIR$/jo-system/pom.xml" />
+        <option value="$PROJECT_DIR$/jo-business/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

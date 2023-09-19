@@ -9,6 +9,7 @@
         <module name="jo-framework" />
         <module name="jo-system" />
         <module name="jo-common" />
+        <module name="jo-business" />
         <module name="jo-admin" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="XH-JO-WF2023" options="-parameters" />
       <module name="jo-admin" options="-parameters" />
+      <module name="jo-business" options="-parameters" />
       <module name="jo-common" options="-parameters" />
       <module name="jo-framework" options="-parameters" />
       <module name="jo-system" options="-parameters" />

@@ -19,6 +19,7 @@
 
     <modules>
         <module>jo-admin</module>
+        <module>jo-business</module>
         <module>jo-common</module>
         <module>jo-framework</module>
         <module>jo-system</module>
