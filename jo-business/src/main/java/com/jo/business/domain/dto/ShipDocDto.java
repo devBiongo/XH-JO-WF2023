@@ -85,6 +85,8 @@ public class ShipDocDto {
 
     private Integer delFlag;
 
+    private Date createdAt;
+
     @NotNull
     private Integer version;
 

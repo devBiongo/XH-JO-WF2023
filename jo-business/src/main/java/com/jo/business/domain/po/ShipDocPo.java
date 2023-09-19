@@ -26,10 +26,6 @@ public class ShipDocPo implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Version
-    @TableField(fill = FieldFill.INSERT)
-    private Integer version;
-
     @TableId(value = "ship_doc_id", type = IdType.AUTO)
     private Long shipDocId;
 
@@ -132,8 +128,8 @@ public class ShipDocPo implements Serializable {
     @TableField("del_flag")
     private Integer delFlag;
 
-    @TableField("created_at")
-    private Timestamp createAt;
+    @TableField(value="created_at",fill = FieldFill.INSERT)
+    private Timestamp createdAt;
 
     @TableField(value="created_by",fill = FieldFill.INSERT)
     private String createdBy;
@@ -143,4 +139,8 @@ public class ShipDocPo implements Serializable {
 
     @TableField(value="updated_by",fill = FieldFill.UPDATE)
     private String updatedBy;
+
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
 }

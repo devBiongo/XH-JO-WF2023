@@ -7,8 +7,10 @@ import com.jo.common.core.domain.AjaxResult;
 import com.jo.common.core.model.SearchModel;
 import com.jo.common.utils.bean.ModelUtil;
 import com.jo.web.param.ShipParam;
+import com.jo.web.param.ShipRegisterParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -50,10 +52,10 @@ public class ShipController {
 
     @PostMapping("/registerNewShipDoc")
     @Transactional
-    public void registerNewShipDoc(@RequestBody Map<String, String> map) {
+    public void registerNewShipDoc(@RequestBody @Validated ShipRegisterParam shipRegisterParam) {
         ShipDocPo masterShipDoc = new ShipDocPo();
-        masterShipDoc.setIoType(map.get("ioType"));
-        masterShipDoc.setInvoiceNo(map.get("invoiceNo"));
+        masterShipDoc.setIoType(shipRegisterParam.getIoType());
+        masterShipDoc.setInvoiceNo(shipRegisterParam.getInvoiceNo());
         masterShipDocService.save(masterShipDoc);
         // dtlAssignment
         AssignPo dtlAssignment = new AssignPo();
