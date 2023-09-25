@@ -6,12 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @TableName("sys_user")
 public class SysUserPo implements Serializable {
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "user_id",type = IdType.AUTO)

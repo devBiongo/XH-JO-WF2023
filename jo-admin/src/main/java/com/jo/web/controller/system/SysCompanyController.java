@@ -34,7 +34,7 @@ public class SysCompanyController {
 
     @PostMapping("/addCompany")
     public void addCompany(@RequestBody CompanyParam companyParam){
-
+        System.out.println(companyParam);
     }
 
 }

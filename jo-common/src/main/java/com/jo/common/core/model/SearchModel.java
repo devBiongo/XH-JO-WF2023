@@ -40,6 +40,8 @@ public class SearchModel<T> {
                 case eq -> queryWrapper.eq(true, StringUtils.toUnderScoreCase(field.getName()), field.getValue());
                 case ne -> queryWrapper.ne(true, StringUtils.toUnderScoreCase(field.getName()), field.getValue());
                 case like -> queryWrapper.like(true, StringUtils.toUnderScoreCase(field.getName()), field.getValue());
+                case gt -> queryWrapper.gt(true, StringUtils.toUnderScoreCase(field.getName()), field.getValue());
+                case lt -> queryWrapper.lt(true, StringUtils.toUnderScoreCase(field.getName()), field.getValue());
             }
         }
         if (!StringUtils.isBlank(orderField)) {

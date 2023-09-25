@@ -3,6 +3,7 @@ package com.jo.system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jo.common.core.service.BaseService;
 import com.jo.common.core.domain.po.SysUserPo;
+import com.jo.common.exception.ServiceException;
 import com.jo.system.mapper.SysUserMapper;
 import com.jo.system.service.ISysUserService;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,7 @@ public class SysUserServiceImpl extends BaseService<SysUserMapper, SysUserPo> im
 
     @Override
     public boolean checkUserNameUnique(SysUserPo sysUser) {
-        return false;
+        SysUserPo sysUserPo = this.selectUserByUserName(sysUser.getUsername());
+        return sysUserPo == null;
     }
 }

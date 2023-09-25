@@ -6,5 +6,5 @@ package com.jo.common.enums;
  */
 public enum QueryMethod {
 
-    eq, ne, like
+    eq, ne, like, gt, lt
 }

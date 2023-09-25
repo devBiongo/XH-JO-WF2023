@@ -40,7 +40,7 @@ public class SwaggerConfig {
                  * withClassAnnotation:扫描类上的注解，参数是一个注解的反射对象
                  * withMethodAnnotation:扫描方法上的注解
                  * */
-                .apis(RequestHandlerSelectors.basePackage("com.jo.web.controller.common"))
+                .apis(RequestHandlerSelectors.basePackage("com.jo.web.controller"))
                 //过滤什么路径
                 //.paths(PathSelectors.ant("/common/**"))
                 .build();
